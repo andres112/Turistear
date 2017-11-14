@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  #formulario.form-inline
+    form(action="/users", method="get", class="form-horizontal")
+      h2 
+        label(for="name") Name:  
+      input(type="text", name="name", id="name", class="form-control" required)
+      button(type="submit", class="btn btn-outline-success btn-lg") Enviar get
+    form(action="/users/delete", method="get", class="form-horizontal")
+      h2 
+        label(for="email") Email:  
+      input(type="text", name="email", id="email", class="form-control" required)
+      button(type="submit", class="btn btn-danger btn-sm") Eliminar con get
+
+  form(action="/users", method="post" class="form-vertical") 
+    h2 
+      label(for="email") Email: 
+    input(type="email" name="email" id="email" required  class="form-control") 
+    h2 
+      label(for="pass") Password: 
+    input(type="password", name="password" id="pass" required class="form-comtrol")
+    h2 
+      label(for="pass_confirm") Password Confirmation: 
+    input(type="password", name="password_confirm" id="pass_confirm" required class="form-comtrol")
+    button(type="submit" class="btn btn-warning") Enviar post

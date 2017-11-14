@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  if(name)
+    h1 Hola #{name}
+    p #{informacion}
+  else
+    h1 Email #{email}
+    h2
+      p Datos almacenados!
+  p Welcome to world at #{time}
+  
