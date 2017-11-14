@@ -17,9 +17,19 @@ block content
       button(type="submit", class="btn btn-danger btn-sm") Eliminar con get
 
   form(action="/users", method="post" class="form-vertical") 
-    h2 
-      label(for="email") Email: 
-    input(type="email" name="email" id="email" required  class="form-control") 
+    div.form-inline
+      h2 
+        label(for="email1") Email: 
+      input(type="email" name="email" id="email1" required  class="form-control") 
+      h2 
+        label(for="sex") Sexo: 
+      select(name="sex", id="sex" class="selectpicker" data-live-search="true")
+        option(value="M") M 
+          small.text-muted Masculino
+        option(value="F") F 
+          small.text-muted Femenino
+        option(value="I") I 
+          small.text-muted Indefinido
     h2 
       label(for="pass") Password: 
     input(type="password", name="password" id="pass" required class="form-comtrol")

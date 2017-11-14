@@ -1,28 +1,14 @@
 var DbConnections = require('../services/db-connection');
 var express = require('express');
 var User = require('../services/models/user').user;
+var User_Ctrl = require('../controllers/index');
 
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  User.find(function (err, doc) {
-    res.render("user", {
-      name: req.query.name,
-      time: getTime(),
-      title: 'Mi Pagina',
-      informacion: doc
-    })
-  })
-});
+router.get('/', User_Ctrl.getUser);
 
-router.get('/delete', function (req, res, next) {
-  User.deleteMany({
-    email: req.query.email
-  }, function (err, doc) {
-    res.send("Datos eliminados" + doc)
-  })
-});
+router.get('/delete', User_Ctrl.deleteUser); 
 
 router.post('/', function (req, res, next) {
   var conexion = DbConnections();
@@ -30,13 +16,17 @@ router.post('/', function (req, res, next) {
     email: req.body.email,
     password: req.body.password,
     date_birth: new Date("October 30, 1990"),
-    password_confirm: req.body.password_confirm
+    password_confirm: req.body.password_confirm,
+    sexo: req.body.sex
   });
 
-  console.log(user.email + user.password + user.date_birth + user.password_confirm);
-  user.save(function () { //callback para acciones asincronas, como leer en bases de datos
+  user.save(function (err) { //callback para acciones asincronas, como leer en bases de datos
+    if(err){
+      res.send(err);
+    }
     res.render("user", {
       email: req.body.email,
+      sexo: req.body.sex,
       time: getTime(),
       title: 'Mi Pagina'
     })

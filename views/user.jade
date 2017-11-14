@@ -5,7 +5,14 @@ block content
     h1 Hola #{name}
     p #{informacion}
   else
-    h1 Email #{email}
+    h1 Email #{email} de sexo 
+      case sexo
+        when "M"
+            p Masculino
+        when "F"
+            p Femenino
+        when "I"
+            p Indefinido
     h2
       p Datos almacenados!
   p Welcome to world at #{time}
