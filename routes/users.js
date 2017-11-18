@@ -8,7 +8,7 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', User_Ctrl.getUser);
 
-router.get('/delete', User_Ctrl.deleteUser); 
+router.get('/delete', User_Ctrl.deleteUser);
 
 router.post('/', function (req, res, next) {
   var conexion = DbConnections();
@@ -20,17 +20,18 @@ router.post('/', function (req, res, next) {
     sexo: req.body.sex
   });
 
-  user.save(function (err) { //callback para acciones asincronas, como leer en bases de datos
-    if(err){
-      res.send(err);
-    }
+  //ALmacenar los datos con una promise, debido a que
+  //es un proceso asincrono
+  user.save().then(() =>
     res.render("user", {
       email: req.body.email,
       sexo: req.body.sex,
       time: getTime(),
       title: 'Mi Pagina'
     })
-  })
+  ).catch(err =>
+    res.send(err.message)
+  )
 });
 
 function getTime() {

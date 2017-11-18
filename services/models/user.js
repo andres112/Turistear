@@ -1,7 +1,15 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var sexo_posible = ["M", "F", "I"]
+var sexo_posible = ["M", "F", "I"];
+//Validacion personalizada toma el atributo password_confirm virtual y 
+//se compara con el password que se creo por el usuario
+var pass_validation = {
+    validator: function (p) {
+        return this.password_confirm == p;
+    },
+    message: "Las contraseñas no son iguales"
+}
 
 //definir el esquema
 var user_schema = new Schema({
@@ -10,7 +18,8 @@ var user_schema = new Schema({
     password: {
         type: String,
         minlength: [5, "Minimo 5 caracteres"],
-        required: true
+        required: true,
+        validate: pass_validation //Se utiliza la variable de validacion personalizada
     },
     age: {
         type: Number,
@@ -24,7 +33,7 @@ var user_schema = new Schema({
         enum: {
             values: sexo_posible,
             message: "Las opciones aceptadas son M, F, I"
-        }        
+        }
     }
 });
 

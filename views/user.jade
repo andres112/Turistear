@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  if(name)
+  if(name || informacion)
     h1 Hola #{name}
     p #{informacion}
   else

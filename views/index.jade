@@ -8,7 +8,7 @@ block content
     form(action="/users", method="get", class="form-horizontal")
       h2 
         label(for="name") Name:  
-      input(type="text", name="name", id="name", class="form-control" required)
+      input(type="text", name="name", id="name", class="form-control")
       button(type="submit", class="btn btn-outline-success btn-lg") Enviar get
     form(action="/users/delete", method="get", class="form-horizontal")
       h2 
@@ -24,12 +24,9 @@ block content
       h2 
         label(for="sex") Sexo: 
       select(name="sex", id="sex" class="selectpicker" data-live-search="true")
-        option(value="M") M 
-          small.text-muted Masculino
-        option(value="F") F 
-          small.text-muted Femenino
-        option(value="I") I 
-          small.text-muted Indefinido
+        option(value="M") Masculino
+        option(value="F") Femenino
+        option(value="I") Indefinido
     h2 
       label(for="pass") Password: 
     input(type="password", name="password" id="pass" required class="form-comtrol")
