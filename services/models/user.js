@@ -21,11 +21,6 @@ var user_schema = new Schema({
         required: true,
         validate: pass_validation //Se utiliza la variable de validacion personalizada
     },
-    age: {
-        type: Number,
-        min: [18, "Edad minima 18"],
-        max: [100, "Edad maxima 100"]
-    },
     email: String,
     date_birth: Date,
     sexo: {

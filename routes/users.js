@@ -6,16 +6,18 @@ var User_Ctrl = require('../controllers/index');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', User_Ctrl.getUser);
+router.post('/session', User_Ctrl.login);
 
 router.get('/delete', User_Ctrl.deleteUser);
 
 router.post('/', function (req, res, next) {
   var conexion = DbConnections();
   var user = new User({
+    name: req.body.name,
+    username:req.body.username,
     email: req.body.email,
     password: req.body.password,
-    date_birth: new Date("October 30, 1990"),
+    date_birth: new Date(req.body.birth),
     password_confirm: req.body.password_confirm,
     sexo: req.body.sex
   });
@@ -27,7 +29,7 @@ router.post('/', function (req, res, next) {
       email: req.body.email,
       sexo: req.body.sex,
       time: getTime(),
-      title: 'Mi Pagina'
+      title: 'Turistear'
     })
   ).catch(err =>
     res.send(err.message)
