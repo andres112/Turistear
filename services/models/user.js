@@ -15,6 +15,7 @@ var pass_validation = {
 var user_schema = new Schema({
     name: String,
     username: String,
+    phone: String,
     password: {
         type: String,
         minlength: [5, "Minimo 5 caracteres"],

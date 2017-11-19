@@ -19,7 +19,8 @@ router.post('/', function (req, res, next) {
     password: req.body.password,
     date_birth: new Date(req.body.birth),
     password_confirm: req.body.password_confirm,
-    sexo: req.body.sex
+    sexo: req.body.sex,
+    phone: req.body.phone
   });
 
   //ALmacenar los datos con una promise, debido a que
@@ -28,6 +29,7 @@ router.post('/', function (req, res, next) {
     res.render("user", {
       email: req.body.email,
       sexo: req.body.sex,
+      phone: req.body.phone,
       time: getTime(),
       title: 'Turistear'
     })

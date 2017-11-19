@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+.color_h1 {
+  color: rgb(255, 0, 0);
+}

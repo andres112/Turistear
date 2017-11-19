@@ -3,7 +3,7 @@ var DbConnections = require('../services/db-connection');
 
 function login(req, res, next) {
     var conexion = DbConnections();
-    User.findOne({
+    User.find({
             email: req.body.email
         },
 
