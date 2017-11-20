@@ -3,6 +3,8 @@ extends layout
 block content
   center
     h1 Bienvenido a #{title}
+    if(user_active)
+      h3 Estas registrado como #{user_active}
     #user.form-horizontal
       a(href="/signup") Registrarse
       br
