@@ -1,15 +1,19 @@
 extends layout
 
 block content
-    center
+    section.container.d-flex.justify-content-center.mt-5
         h1 Bienvenido a #{title}
-        form(action="/users/session", method="post", class="form-horizontal")
-            div.form-inline
-                h2 
-                    label(for="email") Email:  
-                input(type="email", name="email", id="email", class="form-control" placeholder="name@correo.com")
-            div.form-inline
-                h2 
-                    label(for="password") Password:  
-                input(type="password", name="password", id="password", class="form-control")
-            button(type="submit", class="btn btn-outline-success btn-lg") Enviar
+    section.container.d-flex.justify-content-center.mt-5
+        .row.mt-4   
+        form(action="/users/session", method="post", class="")
+            .row.form-group.justify-content-between
+                label.col-form-label.h4.col-4(for="email") Email:  
+                input.form-control.col-7(type="email", name="email", id="email" placeholder="name@correo.com")
+            hr
+            .row.form-group.justify-content-between
+                label.col-form-label.h4.col-4(for="password") Password:  
+                input.form-control.col-7(type="password", name="password", id="password")
+            hr
+            .row.form-group.align-items-center.justify-content-between
+                button.btn.btn-outline-success.justify-content-start(type="submit") Enviar
+                a(href="/signup") Aun no estas registrado

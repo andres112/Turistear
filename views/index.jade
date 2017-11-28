@@ -1,18 +1,21 @@
 extends layout
 
 block content
-  center
-    h1 Bienvenido a #{title}
-    if(user_active)
-      h3 Estas registrado como #{user_active}
-    #user.form-horizontal
-      a(href="/signup") Registrarse
-      br
-      a(href="/login") Iniciar Sesión
+  section.container-fluid.slider
+    .row.justify-content-center
+      .col-sm-12
+        h1.m-5.display-2.text-center Bienvenido a #{title}
+        if(user_active)
+          h3.mt-5 Estas registrado como #{user_active}
+    .row.justify-content-center
+      .d-flex
+        a.mr-2(href="/signup") Registrarse
+        a(href="/login") Iniciar Sesión
+      
 
-    #formulario.form-inline      
-      form(action="/users/delete", method="get", class="form-horizontal")
-        h2 
-          label(for="email") Email:  
-        input(type="text", name="email", id="email", class="form-control" required)
-        button(type="submit", class="btn btn-danger btn-sm") Eliminar con get
+    //- #formulario.form-inline      
+    //-   form(action="/users/delete", method="get", class="form-horizontal")
+    //-     h2 
+    //-       label(for="email") Email:  
+    //-     input(type="text", name="email", id="email", class="form-control" required)
+    //-     button(type="submit", class="btn btn-danger btn-sm") Eliminar con get

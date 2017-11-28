@@ -1,54 +1,57 @@
 extends layout
 
 block content
-    center
-        .color_h1
-            h1= title
-        img(src="/images/registro.png" alt="" class="img-responsive")
+    section.container.mt-5
+        .row.justify-content-center
+            .col-12
+                h1.text-center.display-3= title
+        .row.justify-content-center
+            .col-md-4.col-sm-6
+                img.img-fluid(src="/images/registro.png" alt="")
 
-        form(action="/users" method="post" class="form-inline") 
-            .form-group
-                h3 
-                    label(for="name") Nombre: 
-                .col-lg-12
-                    input(type="text" name="name" id="name" required  class="form-control") 
-            .form-group
-                h3 
-                    label(for="email") Email:
-                .col-lg-12 
-                    input(type="email" name="email" id="email" required  class="form-control")
-            .form-group
-                h3 
-                    label(for="phone") Teléfono:
-                .col-lg-12 
-                    input(type="tel" name="phone" id="phone" required  class="form-control")
-            .form-group 
-                h3 
-                    label(for="username") Username: 
-                .col-lg-12
-                    input(type="text" name="username" id="username" required  class="form-control") 
-            .form-group
-                h3 
-                    label(for="birth") Nacimiento: 
-                .col-lg-12
-                    input(type="date" name="birth" id="birth" required  class="form-control")       
-            .form-group
-                h3 
-                    label(for="sex") Sexo: 
-                .col-lg-10
-                    select(name="sex", id="sex" class="form-control" data-live-search="true")
-                        option(value="M") Masculino
-                        option(value="F") Femenino
-                        option(value="I") Indefinido      
-            .form-group
-                h3 
-                    label(for="pass") Password: 
-                .col-lg-12
-                    input(type="password" name="password" id="pass" required class="form-control")
-            .form-group
-                h3 
-                    label(for="pass_confirm") Confirmar Password: 
-                .col-lg-12
-                    input(type="password" name="password_confirm" id="pass_confirm" required class="form-control")           
-            
-            button(type="submit" class="btn btn-success") Registrar
+    form(action="/users" method="post" class="form-inline") 
+        .form-group
+            h3 
+                label(for="name") Nombre: 
+            .col-lg-12
+                input(type="text" name="name" id="name" required  class="form-control") 
+        .form-group
+            h3 
+                label(for="email") Email:
+            .col-lg-12 
+                input(type="email" name="email" id="email" required  class="form-control")
+        .form-group
+            h3 
+                label(for="phone") Teléfono:
+            .col-lg-12 
+                input(type="tel" name="phone" id="phone" required  class="form-control")
+        .form-group 
+            h3 
+                label(for="username") Username: 
+            .col-lg-12
+                input(type="text" name="username" id="username" required  class="form-control") 
+        .form-group
+            h3 
+                label(for="birth") Nacimiento: 
+            .col-lg-12
+                input(type="date" name="birth" id="birth" required  class="form-control")       
+        .form-group
+            h3 
+                label(for="sex") Sexo: 
+            .col-lg-10
+                select(name="sex", id="sex" class="form-control" data-live-search="true")
+                    option(value="M") Masculino
+                    option(value="F") Femenino
+                    option(value="I") Indefinido      
+        .form-group
+            h3 
+                label(for="pass") Password: 
+            .col-lg-12
+                input(type="password" name="password" id="pass" required class="form-control")
+        .form-group
+            h3 
+                label(for="pass_confirm") Confirmar Password: 
+            .col-lg-12
+                input(type="password" name="password_confirm" id="pass_confirm" required class="form-control")           
+        
+        button(type="submit" class="btn btn-success") Registrar
